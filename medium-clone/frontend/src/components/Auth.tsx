@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { Signupinput } from "@ayush2173/medium-common";
+import {  useSetRecoilState } from "recoil";
+import { currentuser } from "../hooks/atom";
 
 export function Auth({ type }: { type: "signup" | "signin" }) {
     const navigate = useNavigate();
@@ -11,6 +13,7 @@ export function Auth({ type }: { type: "signup" | "signin" }) {
         username: "",
         password: "",
     });
+    const setuser=useSetRecoilState(currentuser);
     const [loading, setLoading] = useState(false);  // Loading state
 
     return (
@@ -72,11 +75,11 @@ export function Auth({ type }: { type: "signup" | "signin" }) {
                             if (!token) {
                                 throw new Error(`Token not received during ${type === "signin" ? "Signin" : "Signup"}`);
                             }
-
+                            setuser(postinputs.username);
                             localStorage.setItem("token", token);
                             navigate("/blogs");
                         } catch (e) {
-                            alert(`Error while ${type === "signin" ? "Signin" : "Signup"}: ${e.message || e}`);
+                            alert(`Error while ${type === "signin" ? "Signin" : "Signup"}: ${e}`);
                         } finally {
                             setLoading(false);  // Set loading to false after request completes
                         }

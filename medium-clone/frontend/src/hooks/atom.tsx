@@ -1,7 +1,12 @@
-import { selector, selectorFamily } from "recoil";
+import {atom, selector, selectorFamily } from "recoil";
 import { BACKEND_URL } from "../config";
 import axios from "axios";
 import { Blog } from "./UseBlogs";
+
+export const currentuser = atom<string|undefined|null>({
+  key:"currentuser",
+  default:null,
+})
 
 export const posts = selector<Blog[]>({
   key: "allblogs",
