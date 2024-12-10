@@ -48,7 +48,7 @@ function TextEditor({onChange}:{onChange: (e: React.ChangeEvent<HTMLTextAreaElem
                     <textarea onChange={onChange}
                         rows={4}
                         className="w-full px-0 text-sm text-gray-900 bg-white border-0 focus:outline-none" // Removed default focus styles
-                        placeholder="Write a comment..."
+                        placeholder="Write a Blog..."
                         required
                     ></textarea>
                 </div>

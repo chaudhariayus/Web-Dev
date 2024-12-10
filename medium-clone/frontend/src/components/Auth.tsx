@@ -21,7 +21,7 @@ export function Auth({ type }: { type: "signup" | "signin" }) {
                 </div>
                 <div className="text-slate-400 flex justify-center mb-6">
                     {type === "signup" ? "Already have an account ?" : "Don't have an account ?"}
-                    <Link className="pl-2 underline text-blue-500" to={type === "signup" ? "/signin" : "/signup"}>
+                    <Link className="pl-2 underline text-blue-500" to={type === "signup" ? "/signin" : "/"}>
                         {type === "signup" ? "Login" : "Signup"}
                     </Link>
                 </div>

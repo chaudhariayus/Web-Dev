@@ -1,5 +1,6 @@
 import { Appbar } from "../components/Appbar";
 import { BlogCards } from "../components/BlogCards";
+import { BlogSkeleton } from "../components/BlogsSkeleton";
 import { posts } from "../hooks/atom";
 import { useRecoilValueLoadable } from "recoil";
 
@@ -13,7 +14,8 @@ export function Blogs() {
       <div>
         <Appbar />
         <div className="flex flex-col items-center p-4">
-          <p>Loading blogs...</p>
+          <BlogSkeleton/>
+          <BlogSkeleton/>         
         </div>
       </div>
     );
