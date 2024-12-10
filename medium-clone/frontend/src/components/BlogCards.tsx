@@ -32,7 +32,7 @@ export function BlogCards({ authorname, publishedDate, title, content ,id}: Blog
     );
 }
 
-function Avatar({ name }: { name: string }) {
+export function Avatar({ name }: { name: string }) {
     return (
         <div className="w-8 h-8 rounded-full bg-gray-400 flex justify-center items-center text-base">
             {name[0].toUpperCase()}
